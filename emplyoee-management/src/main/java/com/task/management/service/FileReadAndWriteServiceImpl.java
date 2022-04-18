@@ -43,12 +43,6 @@ public class FileReadAndWriteServiceImpl implements FileReadAndWriteService {
     public void readAndWrite(MultipartFile[] uploadFile) {
         NumberFormat formatter = new DecimalFormat("##.##");
 
-
-        /*save uploaded file in static direcotry in local */
-
-        /*get files path and files names from saved firecotry and insert to bewlo file input stream*/
-
-
         InputStream inp = null;
         try {
             inp = new FileInputStream("D:\\info\\emplyoee-management\\src\\main\\resources\\static\\uploads\\EmployeeDetails.xlsx");
@@ -102,10 +96,7 @@ public class FileReadAndWriteServiceImpl implements FileReadAndWriteService {
                 employees.add(employee);
 
             }
-            /*
-             * excel row data  With error
-             * and save to log  table
-             * */
+
             List<Employee> employeeList = employees.stream().filter(s -> s.getLogType() != null && s.getErrorDescription() != null).collect(Collectors.toList());
             ModelMapper modelMapper = new ModelMapper();
             List<LogTable> logTableList = modelMapper.map(employeeList, new TypeToken<List<LogTable>>() {
@@ -114,7 +105,7 @@ public class FileReadAndWriteServiceImpl implements FileReadAndWriteService {
 
 
             /*
-             * save to emplyoee table
+             * save to employee table
              * */
             employees.removeAll(employeeList);
             employeeRepository.saveAll(employees);
@@ -129,6 +120,7 @@ public class FileReadAndWriteServiceImpl implements FileReadAndWriteService {
 
     @Override
     public List<Employee> getAllEmolyoeeData() {
+
         return employeeRepository.findAll();
     }
 

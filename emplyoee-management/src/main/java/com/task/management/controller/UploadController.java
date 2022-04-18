@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.List;
 
 @Controller
@@ -23,8 +24,6 @@ public class UploadController {
     private final LogTypeService logTypeService;
 
 
-
-    /*view for upload and employee Table and log table*/
     @GetMapping
     public String getAllData(Model model) {
 
@@ -37,9 +36,9 @@ public class UploadController {
 
     @PostMapping(value = "/upload")
     public String uploadFile(MultipartFile[] uploadFile, Model model) {
-
+//        String baseDir="D:\\info\\emplyoee-management\\src\\main\\resources\\static\\uploads\\";
+//        uploadFile.transferTo(new File(baseDir + uploadFile.getOriginalFilename()));
         fileReadAndWriteService.readAndWrite(uploadFile);
-
 
         return "main";
     }

@@ -19,32 +19,32 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tbl_employee_seq_gen")
     @SequenceGenerator(name = "tbl_employee_seq_gen", sequenceName = "seq_tbl_employee", initialValue = 1, allocationSize = 1)
     private Long id;
-    @Column(name = "employee_id", nullable = true)
+    @Column(name = "employee_id")
     private int employeeId;
-    @Column(name = "full_name", columnDefinition = "VARCHAR(250)", nullable = true)
+    @Column(name = "full_name", columnDefinition = "VARCHAR(250)")
     private String fullName;
 
-    @Column(name = "address", columnDefinition = "VARCHAR(250)", nullable = true)
+    @Column(name = "address", columnDefinition = "VARCHAR(250)")
     private String address;
 
 
-    @Column(name = "email", columnDefinition = "VARCHAR(250)", nullable = true)
+    @Column(name = "email", columnDefinition = "VARCHAR(250)")
     private String email;
 
-    @Column(name = "mobile_number", nullable = true)
+    @Column(name = "mobile_number")
     private String mobileNumber;
 
-    @Column(name = "salary", nullable = true)
+    @Column(name = "salary")
     private double salary;
 
 
-    @Column(name = "experience", nullable = true)
+    @Column(name = "experience")
     private int experience;
 
-    @Column(name = "bonus", nullable = true)
+    @Column(name = "bonus")
     private double bonus;
 
-    @Column(name = "bonus_distributed_date", nullable = true)
+    @Column(name = "bonus_distributed_date")
     @Temporal(TemporalType.DATE)
     private Date bonusDistributedDate;
 
